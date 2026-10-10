@@ -3,23 +3,29 @@ import ArchitectureNotes from '@/components/ArchitectureNotes';
 export default async function Home() {
   let profile = null;
   let repos = [];
-  let countrepo;
+  let countrepo: any[] = [];
+  let featuredRepos: any[] = [];
+  let experimentRepos: any[] = [];
+
   try {
     const profileRes = await fetch('https://api.github.com/users/vishalraghav0290', { next: { revalidate: 3600 } });
     if (profileRes.ok) profile = await profileRes.json();
 
     const reposRes = await fetch('https://api.github.com/users/vishalraghav0290/repos?sort=updated&per_page=6', { next: { revalidate: 3600 } });
     if (reposRes.ok) repos = await reposRes.json();
-    console.log(reposRes);
   } catch (error) {
     console.error('Error fetching github data:', error);
   }
-  try {
-    const myRepo = await fetch('https://api.github.com/users/vishalraghav0290/repos', { next: { revalidate: 600 } })
-    if (myRepo.ok) countrepo = await myRepo.json();
-    console.log("count", countrepo);
-  } catch (error) {
 
+  try {
+    const myRepo = await fetch('https://api.github.com/users/vishalraghav0290/repos?per_page=100', { next: { revalidate: 600 } })
+    if (myRepo.ok) {
+      countrepo = await myRepo.json();
+      featuredRepos = countrepo.filter((repo: any) => repo.topics && repo.topics.includes('portfolio-featured'));
+      experimentRepos = countrepo.filter((repo: any) => repo.topics && repo.topics.includes('portfolio-experiment'));
+    }
+  } catch (error) {
+    console.error(error);
   }
 
   let hashnodeNotes: any[] = [];
@@ -162,14 +168,14 @@ export default async function Home() {
           <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-[0_8px_20px_-6px_rgba(15,23,42,0.08)] rounded-xl transition-all duration-200 flex flex-col justify-between group hover:-translate-y-0.5">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">GPU &amp; 3D</span>
+                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">Gen AI &amp; AI Erineering</span>
                 <span className="font-mono text-xs text-[#e11d48] font-bold bg-rose-50 dark:bg-rose-950/30 px-1.5 py-0.5 rounded border border-rose-100 dark:border-rose-900">06</span>
               </div>
-              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Graphics &amp; Compute</h3>
-              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">WebGPU compute shaders, Three.js, R3F, and GPU rendering pipelines.</p>
+              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">GenAI &amp; Python</h3>
+              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Implementations of RAG , LLM's and Genrative Architecture.</p>
             </div>
             <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
-              View graphics <span className="transition-transform group-hover:translate-x-1">→</span>
+              View work <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
           {/* Card 3 */}
@@ -190,14 +196,14 @@ export default async function Home() {
           <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-[0_8px_20px_-6px_rgba(15,23,42,0.08)] rounded-xl transition-all duration-200 flex flex-col justify-between group hover:-translate-y-0.5">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">OPTIMIZATIONS</span>
-                <span className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-50 dark:bg-emerald-900/30 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">+40%</span>
+                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">Study</span>
+                <span className="font-mono text-xs text-emerald-700 dark:text-emerald-400 font-bold bg-emerald-50 dark:bg-emerald-900/30 px-1.5 py-0.5 rounded border border-emerald-200 dark:border-emerald-800">Computer Science</span>
               </div>
-              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Performance Eng</h3>
-              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Draw call reduction, cache locality, and sub-millisecond DOM hydration.</p>
+              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Education</h3>
+              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">A summary of my educational journey and academic achievements.</p>
             </div>
             <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
-              View metrics <span className="transition-transform group-hover:translate-x-1">→</span>
+              View details <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
           {/* Card 5 */}
@@ -264,7 +270,7 @@ export default async function Home() {
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 gap-2">
           <div>
             <div className="font-mono text-xs tracking-wider text-[#e11d48] uppercase font-bold mb-1">Selected Systems</div>
-            <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white tracking-tight">Featured Production Engines</h2>
+            <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white tracking-tight">Featured Production Work</h2>
           </div>
           <a className="font-mono text-xs text-[#e11d48] hover:underline inline-flex items-center gap-1 font-semibold" href="https://github.com/vishalraghav0290?tab=repositories" rel="noopener noreferrer" target="_blank">
             View all {countrepo ? countrepo.length : 0} on GitHub ↗
@@ -272,6 +278,46 @@ export default async function Home() {
         </div>
         <div className="space-y-6">
           {/* NexBoard */}
+          {/* FlyingAero */}
+          <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl shadow-[0_4px_16px_-4px_rgba(15,23,42,0.04)] hover:shadow-[0_12px_28px_-8px_rgba(15,23,42,0.08)] transition-all duration-200">
+            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
+              <div>
+                <div className="flex items-center gap-3 flex-wrap">
+                  <h3 className="text-xl font-bold text-slate-950 dark:text-white">FlyingAero</h3>
+                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400">// Real-Time Flight Vector Graphics &amp; Geospatial Tracking</span>
+                </div>
+                <div className="flex flex-wrap gap-1.5 mt-3">
+                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">TypeScript</span>
+                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">MapLibre GL</span>
+                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">deck.gl</span>
+                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">OpenSky API</span>
+                </div>
+              </div>
+              <div className="flex items-center gap-4 text-xs font-mono flex-shrink-0">
+                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="https://areotrack.vishalraghav.dev/" rel="noopener noreferrer" target="_blank">
+                  Live Demo <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
+                </a>
+                <span className="text-slate-300 dark:text-slate-700">•</span>
+                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="https://github.com/vishalraghav0290/FlyingAero" rel="noopener noreferrer" target="_blank">
+                  Code <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
+                </a>
+              </div>
+            </div>
+            <ul className="space-y-2.5 text-slate-600 dark:text-slate-400 text-[14px] leading-relaxed">
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#e11d48] font-bold mt-0.5">›</span>
+                <span><strong className="text-slate-900 dark:text-white font-semibold">Geospatial High-Performance Visualization:</strong>Implementation of MapLibre GL integration with deck.gl library for smooth visualization of flight paths in real time.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#e11d48] font-bold mt-0.5">›</span>
+                <span><strong className="text-slate-900 dark:text-white font-semibold">Data Failovers:</strong> Created failover mechanism between OpenSky and ADS-B community sources (adsb.lol, adsb.fi) for avoiding IP blocks by cloud providers.</span>
+              </li>
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#e11d48] font-bold mt-0.5">›</span>
+                <span><strong className="text-slate-900 dark:text-white font-semibold">Spatial Caching:</strong> A grid cache at 250 NM range was made to reduce API load and avoid rate limits.</span>
+              </li>
+            </ul>
+          </div>
           <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl shadow-[0_4px_16px_-4px_rgba(15,23,42,0.04)] hover:shadow-[0_12px_28px_-8px_rgba(15,23,42,0.08)] transition-all duration-200">
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
               <div>
@@ -288,7 +334,7 @@ export default async function Home() {
                 </div>
               </div>
               <div className="flex items-center gap-4 text-xs font-mono flex-shrink-0">
-                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="#">
+                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="https://nexboard.vishalraghav.dev/">
                   Live Demo <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
                 </a>
                 <span className="text-slate-300 dark:text-slate-700">•</span>
@@ -318,9 +364,7 @@ export default async function Home() {
               <div>
                 <div className="flex items-center gap-3 flex-wrap">
                   <h3 className="text-xl font-bold text-slate-950 dark:text-white">Velocity</h3>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400">// Interactive 3D Footwear Experience &amp; Render Engine</span>
-                  <span className="font-mono text-xs text-amber-700 dark:text-amber-400 bg-amber-50 dark:bg-amber-900/30 border border-amber-200 dark:border-amber-800 px-2 py-0.5 rounded font-semibold">★ 01</span>
-                </div>
+                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400">// Interactive 3D Footwear Experience &amp; Render Engine</span>                </div>
                 <div className="flex flex-wrap gap-1.5 mt-3">
                   <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">React 18</span>
                   <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">Three.js</span>
@@ -330,7 +374,7 @@ export default async function Home() {
                 </div>
               </div>
               <div className="flex items-center gap-4 text-xs font-mono flex-shrink-0">
-                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="#">
+                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="https://velocity.vishalraghav.dev/">
                   Live Demo <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
                 </a>
                 <span className="text-slate-300 dark:text-slate-700">•</span>
@@ -347,42 +391,6 @@ export default async function Home() {
               <li className="flex items-start gap-2.5">
                 <span className="text-[#e11d48] font-bold mt-0.5">›</span>
                 <span><strong className="text-slate-900 dark:text-white font-semibold">Texture Atlas &amp; Draw Calls:</strong> Dramatically compressed geometry buffers for zero hitching and steady 60 FPS performance on resource-constrained mobile GPUs.</span>
-              </li>
-            </ul>
-          </div>
-          {/* Redefine */}
-          <div className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 rounded-2xl shadow-[0_4px_16px_-4px_rgba(15,23,42,0.04)] hover:shadow-[0_12px_28px_-8px_rgba(15,23,42,0.08)] transition-all duration-200">
-            <div className="flex flex-col md:flex-row md:items-start justify-between gap-4 mb-5">
-              <div>
-                <div className="flex items-center gap-3 flex-wrap">
-                  <h3 className="text-xl font-bold text-slate-950 dark:text-white">Redefine</h3>
-                  <span className="font-mono text-xs text-slate-500 dark:text-slate-400">// Immersive Spatial Storytelling &amp; Gaming Web Engine</span>
-                </div>
-                <div className="flex flex-wrap gap-1.5 mt-3">
-                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">React</span>
-                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">GSAP ScrollTrigger</span>
-                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">Lenis Scroll</span>
-                  <span className="font-mono text-[11px] bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2.5 py-0.5 rounded text-slate-700 dark:text-slate-300">Tailwind CSS</span>
-                </div>
-              </div>
-              <div className="flex items-center gap-4 text-xs font-mono flex-shrink-0">
-                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="#">
-                  Live Demo <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
-                </a>
-                <span className="text-slate-300 dark:text-slate-700">•</span>
-                <a className="text-slate-900 dark:text-slate-100 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors inline-flex items-center gap-1 font-semibold" href="https://github.com/vishalraghav0290" rel="noopener noreferrer" target="_blank">
-                  Code <span className="material-symbols-outlined text-[14px]">arrow_outward</span>
-                </a>
-              </div>
-            </div>
-            <ul className="space-y-2.5 text-slate-600 dark:text-slate-400 text-[14px] leading-relaxed">
-              <li className="flex items-start gap-2.5">
-                <span className="text-[#e11d48] font-bold mt-0.5">›</span>
-                <span><strong className="text-slate-900 dark:text-white font-semibold">Scroll Choreography:</strong> Scroll-driven clip-path SVG masks, pinned video canvas stages, and precision-timed cinematic narrative sequences.</span>
-              </li>
-              <li className="flex items-start gap-2.5">
-                <span className="text-[#e11d48] font-bold mt-0.5">›</span>
-                <span><strong className="text-slate-900 dark:text-white font-semibold">Interpolation Engine:</strong> Offloaded layout thrashing by executing all geometry updates via transform-only hardware-accelerated layers.</span>
               </li>
             </ul>
           </div>
@@ -416,7 +424,7 @@ export default async function Home() {
             </div>
             <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-6">Live repos built and maintained in the open ecosystem.</p>
             <div className="space-y-3 font-mono text-xs">
-              {repos.length > 0 ? repos.map((repo: any, i: number) => (
+              {(experimentRepos.length > 0 ? experimentRepos : repos).map((repo: any, i: number) => (
                 <div key={repo.id} className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span className={i === 0 ? "text-amber-600 dark:text-amber-400 font-bold flex-shrink-0" : "text-slate-400 font-bold flex-shrink-0"}>★ {repo.stargazers_count > 9 ? repo.stargazers_count : `0${repo.stargazers_count}`}</span>
@@ -425,9 +433,7 @@ export default async function Home() {
                   </div>
                   {repo.language && <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">{repo.language}</span>}
                 </div>
-              )) : (
-                <div className="text-slate-500 dark:text-slate-400">Loading repositories...</div>
-              )}
+              ))}
             </div>
           </div>
         </div>
