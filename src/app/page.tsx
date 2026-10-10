@@ -428,7 +428,7 @@ export default async function Home() {
                 <div key={repo.id} className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span className={i === 0 ? "text-amber-600 dark:text-amber-400 font-bold flex-shrink-0" : "text-slate-400 font-bold flex-shrink-0"}>★ {repo.stargazers_count > 9 ? repo.stargazers_count : `0${repo.stargazers_count}`}</span>
-                    <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href={repo.html_url} rel="noopener noreferrer" target="_blank">{repo.name}</a>
+                    <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline flex-shrink-0 whitespace-nowrap" href={repo.html_url} rel="noopener noreferrer" target="_blank">{repo.name}</a>
                     {repo.description && <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// {repo.description}</span>}
                   </div>
                   {repo.language && <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">{repo.language}</span>}
