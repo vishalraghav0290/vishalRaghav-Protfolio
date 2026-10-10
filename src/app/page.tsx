@@ -1,9 +1,70 @@
-export default function Home() {
+import ArchitectureNotes from '@/components/ArchitectureNotes';
+
+export default async function Home() {
+  let profile = null;
+  let repos = [];
+  let countrepo;
+  try {
+    const profileRes = await fetch('https://api.github.com/users/vishalraghav0290', { next: { revalidate: 3600 } });
+    if (profileRes.ok) profile = await profileRes.json();
+
+    const reposRes = await fetch('https://api.github.com/users/vishalraghav0290/repos?sort=updated&per_page=6', { next: { revalidate: 3600 } });
+    if (reposRes.ok) repos = await reposRes.json();
+    console.log(reposRes);
+  } catch (error) {
+    console.error('Error fetching github data:', error);
+  }
+  try {
+    const myRepo = await fetch('https://api.github.com/users/vishalraghav0290/repos', { next: { revalidate: 600 } })
+    if (myRepo.ok) countrepo = await myRepo.json();
+    console.log("count", countrepo);
+  } catch (error) {
+
+  }
+
+  let hashnodeNotes: any[] = [];
+  try {
+    const rssRes = await fetch('https://vishalraghav.hashnode.dev/rss.xml', { next: { revalidate: 3600 } });
+    if (rssRes.ok) {
+      const text = await rssRes.text();
+      const items = text.split('<item>').slice(1);
+      hashnodeNotes = items.map(item => {
+        const titleMatch = item.match(/<title><!\[CDATA\[(.*?)\]\]><\/title>/);
+        const linkMatch = item.match(/<link>(.*?)<\/link>/);
+        const dateMatch = item.match(/<pubDate>(.*?)<\/pubDate>/);
+        return {
+          title: titleMatch ? titleMatch[1] : '',
+          link: linkMatch ? linkMatch[1] : '',
+          date: dateMatch ? new Date(dateMatch[1]).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: '2-digit' }) : '',
+          published: true
+        };
+      });
+    }
+  } catch (e) {
+    console.error('Error fetching hashnode data:', e);
+  }
+  console.log('repos', profile);
+  const architectureNotes = [
+    { title: "Decoupling WebSockets from React Server Components", date: "Oct 14, 2025", link: "#", published: false },
+    { title: "Memory Layout Optimization in WebGPU Uniform Buffers", date: "Nov 02, 2026", link: "#", published: false },
+    { title: "Benchmarking Bun vs Node.js for High-Throughput Microservices", date: "Dec 18, 2026", link: "#", published: false },
+    { title: "CRDT State Convergence without Aggressive Locks", date: "Jan 12, 2027", link: "#", published: false },
+    { title: "Zero-Bundle Static Shells for 40%+ Page Load Gains", date: "TBD", link: "#", published: false },
+    { title: "Eliminating Garbage Collection Pauses in Web Canvas", date: "Feb 05, 2027", link: "#", published: false },
+  ];
+
+  if (hashnodeNotes.length > 0) {
+    architectureNotes[0] = hashnodeNotes[0];
+  }
+  if (hashnodeNotes.length > 1) {
+    architectureNotes[4] = hashnodeNotes[1];
+  }
+
   return (
-    <div className="w-full max-w-[1480px] mx-auto px-6 md:px-8">
+    <div className="w-full max-w-[1480px] mx-auto px-6 md:px-8 ">
       {/* HERO SECTION */}
-      <section className="pt-6 pb-20 border-b border-slate-200/90 dark:border-slate-800">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start justify-between">
+      <section className="pt-6 pb-10 lg:pb-20 border-b border-slate-200/90 dark:border-slate-800">
+        <div className="flex flex-col-reverse lg:flex-row gap-12 lg:gap-16 items-start justify-between">
           {/* Narrative Column */}
           <div className="flex-1 max-w-[1200px]">
             {/* Headline */}
@@ -40,7 +101,7 @@ export default function Home() {
             <div className="flex flex-wrap items-center gap-2.5 pt-8">
               <a className="inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-slate-800 dark:text-slate-200 font-mono text-xs transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow" href="https://github.com/vishalraghav0290" rel="noopener noreferrer" target="_blank">
                 <span>GitHub</span>
-                <span className="text-slate-500 dark:text-slate-400 font-normal">(27 repos)</span>
+                <span className="text-slate-500 dark:text-slate-400 font-normal">({countrepo ? countrepo.length : 0} repos)</span>
               </a>
               <a className="inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-slate-800 dark:text-slate-200 font-mono text-xs transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow" href="https://www.linkedin.com/in/vishal-raghav-747a61251/" rel="noopener noreferrer" target="_blank">
                 <span>LinkedIn</span>
@@ -74,7 +135,7 @@ export default function Home() {
       </section>
 
       {/* EXPLORE WORK & ARCHITECTURE GRID */}
-      <section className="py-20 border-b border-slate-200/90 dark:border-slate-800" id="architecture">
+      <section className="pt-10 lg:py-20 border-b border-slate-200/90 dark:border-slate-800" id="architecture">
         <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-10 gap-2">
           <div>
             <div className="font-mono text-xs tracking-wider text-[#e11d48] uppercase font-bold mb-1">Taxonomy</div>
@@ -206,7 +267,7 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-bold text-slate-950 dark:text-white tracking-tight">Featured Production Engines</h2>
           </div>
           <a className="font-mono text-xs text-[#e11d48] hover:underline inline-flex items-center gap-1 font-semibold" href="https://github.com/vishalraghav0290?tab=repositories" rel="noopener noreferrer" target="_blank">
-            View all 27 on GitHub ↗
+            View all {countrepo ? countrepo.length : 0} on GitHub ↗
           </a>
         </div>
         <div className="space-y-6">
@@ -334,42 +395,18 @@ export default function Home() {
           {/* Left: Recent Architecture Notes */}
           <div>
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-xl font-bold text-slate-950 dark:text-white tracking-tight">Recent Architecture Notes</h3>
-              <a className="font-mono text-xs text-[#e11d48] hover:underline font-semibold" href="#">All notes ↗</a>
+              <h3 className="text-xl font-bold text-slate-950 dark:text-white tracking-tight">Architecture Notes & Engineering Insights</h3>
+              <a className="font-mono text-xs text-[#e11d48] hover:underline font-semibold" href="https://vishalraghav.hashnode.dev" rel="noopener noreferrer" target="_blank">All notes ↗</a>
             </div>
             <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-6">Concise engineering maxims, benchmarks, and mental models.</p>
-            <div className="space-y-4">
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">Oct 14, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">Decoupling WebSockets from React Server Components</a>
-              </div>
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">Sep 28, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">Memory Layout Optimization in WebGPU Uniform Buffers</a>
-              </div>
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">Sep 12, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">Benchmarking Bun vs Node.js for High-Throughput Microservices</a>
-              </div>
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">Aug 20, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">CRDT State Convergence without Aggressive Locks</a>
-              </div>
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">Jul 08, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">Zero-Bundle Static Shells for 40%+ Page Load Gains</a>
-              </div>
-              <div className="flex items-baseline gap-3 p-2.5 rounded-lg hover:bg-white dark:hover:bg-slate-900 border border-transparent hover:border-slate-200 dark:hover:border-slate-800 hover:shadow-sm transition-all">
-                <span className="font-mono text-xs text-slate-500 dark:text-slate-400 flex-shrink-0 w-24">May 19, 2025</span>
-                <span className="text-slate-300 dark:text-slate-700 font-mono">:</span>
-                <a className="text-sm text-slate-800 dark:text-slate-200 hover:text-[#e11d48] dark:hover:text-[#e11d48] transition-colors truncate font-semibold" href="#">Eliminating Garbage Collection Pauses in Web Canvas</a>
-              </div>
-            </div>
+            <ArchitectureNotes
+              notes={[...architectureNotes].sort((a, b) => {
+                // Parse strings to timestamps. If it says "TBD", treat it as Infinity (far future)
+                const timeA = a.date === "TBD" ? Infinity : new Date(a.date).getTime();
+                const timeB = b.date === "TBD" ? Infinity : new Date(b.date).getTime();
+                return timeA - timeB; // ascending (oldest first)
+              })}
+            />
           </div>
           {/* Right: Pinned Repositories / Experiments */}
           <div>
@@ -379,54 +416,18 @@ export default function Home() {
             </div>
             <p className="text-xs font-mono text-slate-500 dark:text-slate-400 mb-6">Live repos built and maintained in the open ecosystem.</p>
             <div className="space-y-3 font-mono text-xs">
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-amber-600 dark:text-amber-400 font-bold flex-shrink-0">★ 01</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/velocity" rel="noopener noreferrer" target="_blank">velocity</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// 3D commercial footwear experience</span>
+              {repos.length > 0 ? repos.map((repo: any, i: number) => (
+                <div key={repo.id} className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2.5 min-w-0">
+                    <span className={i === 0 ? "text-amber-600 dark:text-amber-400 font-bold flex-shrink-0" : "text-slate-400 font-bold flex-shrink-0"}>★ {repo.stargazers_count > 9 ? repo.stargazers_count : `0${repo.stargazers_count}`}</span>
+                    <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href={repo.html_url} rel="noopener noreferrer" target="_blank">{repo.name}</a>
+                    {repo.description && <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// {repo.description}</span>}
+                  </div>
+                  {repo.language && <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">{repo.language}</span>}
                 </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">TypeScript</span>
-              </div>
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-slate-400 font-bold flex-shrink-0">★ 00</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/3dCommericalstore" rel="noopener noreferrer" target="_blank">3dCommericalstore</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// WebGL spatial retail showcase</span>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">Three.js</span>
-              </div>
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-slate-400 font-bold flex-shrink-0">★ 00</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/animated-health-insights" rel="noopener noreferrer" target="_blank">animated-health-insights</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// Telemetry visualization canvas</span>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">TypeScript</span>
-              </div>
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-slate-400 font-bold flex-shrink-0">★ 00</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/elegant_gasp_smoother" rel="noopener noreferrer" target="_blank">elegant_gasp_smoother</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// Hardware-accelerated viewport inertia</span>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">TypeScript</span>
-              </div>
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-slate-400 font-bold flex-shrink-0">★ 00</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/funky-web" rel="noopener noreferrer" target="_blank">funky-web</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// Creative interactive shader demos</span>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">Next.js</span>
-              </div>
-              <div className="p-3 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 shadow-sm transition-all flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <span className="text-slate-400 font-bold flex-shrink-0">★ 00</span>
-                  <a className="text-slate-900 dark:text-slate-100 font-semibold hover:text-[#e11d48] dark:hover:text-[#e11d48] hover:underline truncate" href="https://github.com/vishalraghav0290/spy-onhover" rel="noopener noreferrer" target="_blank">spy-onhover</a>
-                  <span className="text-slate-500 dark:text-slate-400 hidden sm:inline text-[11px] truncate">// Micro-interaction state watcher</span>
-                </div>
-                <span className="text-slate-600 dark:text-slate-400 text-[10px] bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 px-2 py-0.5 rounded flex-shrink-0">TypeScript</span>
-              </div>
+              )) : (
+                <div className="text-slate-500 dark:text-slate-400">Loading repositories...</div>
+              )}
             </div>
           </div>
         </div>
@@ -496,7 +497,7 @@ export default function Home() {
       </section>
 
       {/* PAPERS & INSPIRATION (ARPIT-STYLE INDEX BAR) */}
-      <section className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
+      {/* <section className="p-6 md:p-8 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-6">
           <div className="text-lg font-bold text-slate-950 dark:text-white tracking-tight">Foundational Architecture Readings</div>
           <div className="font-mono text-xs text-slate-500 dark:text-slate-400">Systems • GPU • Runtimes</div>
@@ -515,7 +516,7 @@ export default function Home() {
             <span className="font-mono text-xs text-slate-500 dark:text-slate-400 hidden sm:inline">React / RSC ↗</span>
           </a>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 }

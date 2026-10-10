@@ -43,6 +43,9 @@ const passeroOne = Passero_One({
 export const metadata: Metadata = {
   title: "Vishal Raghav — Systems Architecture & Engineering",
   description: "I am a Software Development Engineer (SDE), Systems Architect, and Performance Engineer focused on building distributed architecture, low-latency streaming pipelines, and GPU compute infrastructure.",
+  icons: {
+    icon: '/img.jpeg',
+  },
 };
 
 export default function RootLayout({
