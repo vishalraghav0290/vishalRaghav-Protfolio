@@ -4,6 +4,7 @@ import { Inter, JetBrains_Mono, Plus_Jakarta_Sans, Bungee_Hairline, Passero_One,
 import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import "./globals.css";
+import { HeaderNav } from "@/components/HeaderNav";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -80,19 +81,7 @@ export default function RootLayout({
                 </Link>
                 {/* <span className="hidden sm:inline-block font-mono text-[12px] text-slate-500 font-medium">// systems architect</span> */}
               </div>
-              <nav className="hidden lg:flex items-center gap-7 text-[13px] font-medium text-slate-600 dark:text-gray-700">
-                <Link className="text-slate-950 dark:text-gray-950 font-semibold transition-colors flex items-center gap-1.5" href="/">
-                  <span>Overview</span>
-                  <span className="w-1 h-1 rounded-full bg-[#e11d48]"></span>
-                </Link>
-                <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/#architecture">Architecture &amp; Systems</Link>
-                <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/platform-work">Platform Work</Link>
-                <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/#projects">Projects</Link>
-                <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/learning">Learning &amp; Notes</Link>
-                <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="https://www.linkedin.com/in/vishal-raghav-747a61251/">Linkdin</a>
-                <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors font-mono" href="https://github.com/vishalraghav0290" rel="noopener noreferrer" target="_blank">GitHub</a>
-                <ThemeToggle />
-              </nav>
+              <HeaderNav />
             </div>
           </header>
 
@@ -142,9 +131,9 @@ export default function RootLayout({
                       <span>Hashnode</span>
                     </a>
                   </div>
-                  <p className="font-mono text-[11px] text-slate-500 pt-2">
+                  {/* <p className="font-mono text-[11px] text-slate-500 pt-2">
                     PGP Key: <span className="text-slate-800 dark:text-slate-300 font-medium">9F2B 4A71 88CD 3E01</span>
-                  </p>
+                  </p> */}
                 </div>
               </div>
               {/* Bottom Bar */}
@@ -152,14 +141,14 @@ export default function RootLayout({
                 <div className="text-center md:text-left">
                   © 2026 Vishal Raghav. Built for high performance &amp; scale.
                 </div>
-                <div className="flex items-center gap-4">
+                {/* <div className="flex items-center gap-4">
                   <span className="flex items-center gap-1.5 text-slate-600 dark:text-slate-400 font-medium">
                     <span className="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     Latency: &lt;0.8ms
                   </span>
                   <span className="text-slate-300 dark:text-slate-700">•</span>
                   <span>Plain Monospace / Editorial System</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </footer>

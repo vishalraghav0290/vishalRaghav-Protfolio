@@ -125,61 +125,61 @@ export default function LearningPage() {
   const [activeTab, setActiveTab] = useState('all');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredCourses = PAID_COURSES.filter(course => 
+  const filteredCourses = PAID_COURSES.filter(course =>
     (activeTab === 'all' || activeTab === 'courses') &&
-    (course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     course.desc.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     course.author.toLowerCase().includes(searchQuery.toLowerCase()))
+    (course.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      course.author.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
-  const filteredSeries = SERIES.filter(series => 
+  const filteredSeries = SERIES.filter(series =>
     (activeTab === 'all' || activeTab === 'series') &&
-    (series.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     series.desc.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     series.author.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
-  
-  const filteredSpecs = SPECS.filter(spec => 
-    (activeTab === 'all' || activeTab === 'docs') &&
-    (spec.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     spec.desc.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     spec.org.toLowerCase().includes(searchQuery.toLowerCase()))
-  );
-  
-  const filteredLogs2026 = LOGS_2026.filter(log => 
-    (activeTab === 'all' || activeTab === 'logs') &&
-    (log.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     log.author.toLowerCase().includes(searchQuery.toLowerCase()))
+    (series.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      series.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      series.author.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
-  const filteredLogs2025 = LOGS_2025.filter(log => 
+  const filteredSpecs = SPECS.filter(spec =>
+    (activeTab === 'all' || activeTab === 'docs') &&
+    (spec.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      spec.desc.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      spec.org.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
+  const filteredLogs2026 = LOGS_2026.filter(log =>
     (activeTab === 'all' || activeTab === 'logs') &&
-    (log.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-     log.author.toLowerCase().includes(searchQuery.toLowerCase()))
+    (log.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      log.author.toLowerCase().includes(searchQuery.toLowerCase()))
+  );
+
+  const filteredLogs2025 = LOGS_2025.filter(log =>
+    (activeTab === 'all' || activeTab === 'logs') &&
+    (log.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      log.author.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
   return (
     <div className="flex flex-col w-full relative min-h-[calc(100vh-14rem)] font-sans">
       {/* Blueprint Grid Overlay */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-20" 
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-20"
         style={{
           backgroundImage: 'linear-gradient(to right, rgba(203, 213, 225, 0.45) 1px, transparent 1px), linear-gradient(to bottom, rgba(203, 213, 225, 0.45) 1px, transparent 1px)',
           backgroundSize: '32px 32px'
         }}
       ></div>
-      
+
       <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-10 w-full flex flex-col gap-12">
-        
+
         {/* HERO / HEADER */}
         <header className="flex flex-col gap-6 pt-4 border-b border-slate-200 dark:border-slate-800 pb-10">
           <div className="flex flex-col md:flex-row md:items-baseline justify-between gap-4">
             <div className="flex items-baseline gap-3">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight font-bold">Learning &amp; Notes</h1>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl text-slate-900 dark:text-white tracking-tight font-cursive">Learning &amp; Notes</h1>
               <span className="font-mono text-sm text-slate-500 dark:text-slate-400">(148 Entries)</span>
             </div>
           </div>
-          
+
           <p className="text-[17px] text-slate-600 dark:text-slate-400 max-w-4xl leading-relaxed">
             Concise engineering takeaways, course breakdowns, deep-dive video logs, and documentation notes across systems architecture, full-stack development, and AI engineering.
           </p>
@@ -189,14 +189,13 @@ export default function LearningPage() {
             {/* Filter Tabs */}
             <div className="flex items-center gap-1.5 overflow-x-auto pb-2 lg:pb-0 scrollbar-none font-mono text-xs">
               {TABS.map(tab => (
-                <button 
+                <button
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
-                  className={`px-3 py-1.5 rounded shrink-0 transition-colors ${
-                    activeTab === tab.id 
-                      ? 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900' 
+                  className={`px-3 py-1.5 rounded shrink-0 transition-colors ${activeTab === tab.id
+                      ? 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900'
                       : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
-                  }`}
+                    }`}
                   type="button"
                 >
                   {tab.label}
@@ -206,9 +205,9 @@ export default function LearningPage() {
             {/* Search Bar */}
             <div className="relative min-w-[280px] lg:w-80 shrink-0">
               <span className="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-[18px] text-slate-400">search</span>
-              <input 
-                className="w-full pl-9 pr-4 py-1.5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs border border-slate-200 dark:border-slate-800 focus:border-slate-400 dark:focus:border-slate-500 focus:outline-none transition-colors rounded" 
-                placeholder="Search takeaways, creators... [⌘K]" 
+              <input
+                className="w-full pl-9 pr-4 py-1.5 bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs border border-slate-200 dark:border-slate-800 focus:border-slate-400 dark:focus:border-slate-500 focus:outline-none transition-colors rounded"
+                placeholder="Search takeaways, creators... [⌘K]"
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
@@ -234,7 +233,7 @@ export default function LearningPage() {
               </div>
               <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">VERIFIED ENROLLMENT</span>
             </div>
-            
+
             <div className="flex flex-col divide-y divide-slate-100 dark:divide-slate-800">
               {filteredCourses.map((course, idx) => (
                 <article key={idx} className="py-5 flex flex-col lg:flex-row lg:items-start justify-between gap-4 group">
@@ -282,7 +281,7 @@ export default function LearningPage() {
               </div>
               <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">DEEP SYLLABUS DRILLS</span>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 pt-2">
               {filteredSeries.map((series, idx) => (
                 <article key={idx} className="flex flex-col gap-2 pb-6 border-b border-slate-100 dark:border-slate-800/60">
@@ -315,7 +314,7 @@ export default function LearningPage() {
               </div>
               <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 uppercase tracking-wider">OFFICIAL PROTOCOL REVIEWS</span>
             </div>
-            
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 pt-2">
               {filteredSpecs.map((spec, idx) => (
                 <div key={idx} className="flex flex-col gap-1.5 pb-4 border-b border-slate-100 dark:border-slate-800/60">
