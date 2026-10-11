@@ -228,7 +228,7 @@ export default async function Home() {
                 <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">Knowelege</span>
                 <span className="font-mono text-xs text-[#e11d48] font-bold bg-rose-50 dark:bg-rose-950/30 px-1.5 py-0.5 rounded border border-rose-100 dark:border-rose-900">05</span>
               </div>
-              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Learning &amp; Understanding</h3>
+              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Learning&amp;Notes</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">The list of rescourses that help me to coding & problem solving; Kudos to all. </p>
             </div>
             <Link className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="/learning">
