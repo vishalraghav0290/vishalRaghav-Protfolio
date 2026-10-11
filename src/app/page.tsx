@@ -245,9 +245,9 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Platform Work</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">MrManager and DigiVikreta high-concurrency client-facing services.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#projects">
+            <Link className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="/platform-work">
               View platforms <span className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            </Link>
           </div>
           {/* Card 8 */}
           <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-[0_8px_20px_-6px_rgba(15,23,42,0.08)] rounded-xl transition-all duration-200 flex flex-col justify-between group hover:-translate-y-0.5">

@@ -86,6 +86,7 @@ export default function RootLayout({
                   <span className="w-1 h-1 rounded-full bg-[#e11d48]"></span>
                 </Link>
                 <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/#architecture">Architecture &amp; Systems</Link>
+                <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/platform-work">Platform Work</Link>
                 <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/#projects">Projects</Link>
                 <Link className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="/#notes">Writing &amp; Notes</Link>
                 <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="https://www.linkedin.com/in/vishal-raghav-747a61251/">Linkdin</a>
