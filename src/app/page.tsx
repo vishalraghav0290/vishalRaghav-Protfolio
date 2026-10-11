@@ -1,6 +1,8 @@
 import Link from 'next/link';
 import ArchitectureNotes from '@/components/ArchitectureNotes';
 
+export const instant = false;
+
 export default async function Home() {
   let profile = null;
   let repos = [];
