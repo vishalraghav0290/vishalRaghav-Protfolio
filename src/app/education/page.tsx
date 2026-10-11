@@ -9,15 +9,15 @@ export default function EducationPage() {
           {/* Left delicate vertical timeline line */}
           <div className="relative flex-none hidden sm:flex flex-col items-center">
             <div className="w-px h-full bg-slate-200 dark:bg-slate-800 relative flex flex-col justify-end">
-              <div className="absolute top-0 w-full bg-slate-200 dark:bg-slate-800 h-[210px]"></div>
-              <div className="absolute top-[210px] bottom-0 w-full bg-[#e11d48]"></div>
+              <div className="absolute top-0 w-full bg-slate-200 dark:bg-slate-800 h-[340px]"></div>
+              <div className="absolute top-[340px] bottom-0 w-full bg-[#e11d48]"></div>
 
-              <div className="absolute top-[210px] -left-[5.5px] flex items-center justify-center">
+              <div className="absolute top-[340px] -left-[5.5px] flex items-center justify-center">
                 <span className="absolute w-4 h-4 rounded-full bg-[#e11d48]/25 animate-ping"></span>
                 <span className="relative w-3 h-3 rounded-full bg-[#e11d48] border-2 border-white dark:border-slate-950 shadow-[0_0_8px_rgba(225,29,72,0.6)]"></span>
               </div>
-              <div className="absolute top-[480px] -left-[3px] w-1.5 h-1.5 rounded-full bg-[#e11d48]/70"></div>
-              <div className="absolute top-[750px] -left-[3px] w-1.5 h-1.5 rounded-full bg-[#e11d48]/70"></div>
+              <div className="absolute top-[610px] -left-[3px] w-1.5 h-1.5 rounded-full bg-[#e11d48]/70"></div>
+              <div className="absolute top-[880px] -left-[3px] w-1.5 h-1.5 rounded-full bg-[#e11d48]/70"></div>
               <div className="absolute bottom-8 -left-[3px] w-1.5 h-1.5 rounded-full bg-[#e11d48]/70"></div>
             </div>
           </div>
@@ -29,9 +29,7 @@ export default function EducationPage() {
             <div className="space-y-5 pb-6 border-b border-slate-200 dark:border-slate-800">
               <div className="flex flex-wrap items-center justify-between gap-3 font-mono text-xs">
                 <div className="flex items-center gap-2">
-                  <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[#e11d48] font-bold tracking-wider uppercase">ARCHIVE // ACADEMIC LEDGER</span>
-                  <span className="text-slate-300 dark:text-slate-600">//</span>
-                  <span className="text-slate-900 dark:text-white font-medium">NODE 01 — 04</span>
+                  <span className="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-[#e11d48] font-bold tracking-wider uppercase">ACADEMIC LEDGER</span>
                 </div>
                 <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400">
                   <span className="w-2 h-2 rounded-full bg-[#e11d48] animate-pulse"></span>
@@ -39,17 +37,22 @@ export default function EducationPage() {
                 </div>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
-                “figuring out what i can do to delay employment”
+                “My Academic Journey”
               </h1>
               <div className="flex flex-wrap items-center gap-x-6 gap-y-2 font-mono text-xs text-slate-500 dark:text-slate-400">
-                <span className="flex items-center gap-1.5"><span className="text-slate-400 dark:text-slate-500 uppercase">FOCUS:</span> Distributed Systems &amp; Compute Fundamentals</span>
+                <span className="flex items-center gap-1.5"><span className="text-slate-400 dark:text-slate-500 uppercase">FOCUS:</span>Problem Solving &amp; Compute Fundamentals</span>
                 <span className="hidden sm:inline text-slate-300 dark:text-slate-600">|</span>
-                <span className="flex items-center gap-1.5"><span className="text-slate-400 dark:text-slate-500 uppercase">SPAN:</span> 2017 — PRESENT</span>
+                <span className="flex items-center gap-1.5"><span className="text-slate-400 dark:text-slate-500 uppercase">SPAN:</span> 2005 — PRESENT</span>
                 <span className="hidden sm:inline text-slate-300 dark:text-slate-600">|</span>
-                <span className="flex items-center gap-1.5"><span className="text-slate-400 dark:text-slate-500 uppercase">VERIFIED:</span> 4 RECORDS</span>
               </div>
             </div>
-
+            <section className="space-y-3 pt-2">
+              <div className="space-y-5 pb-6 ">
+                <h6 className="text-1xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 dark:text-white leading-[1.15]">
+                  “figuring out what else I can do to delay employment”
+                </h6>
+              </div>
+            </section>
             {/* Post Graduation */}
             <section className="space-y-3 pt-2">
               <div className="flex flex-wrap items-center justify-between gap-2 font-mono text-xs">

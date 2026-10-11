@@ -161,7 +161,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Systems Architecture</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Zero-bundle static shells, CRDT sync, and streaming RSC pipelines.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#architecture">
               View specs <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -175,7 +175,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">GenAI &amp; Python</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Implementations of RAG , LLM's and Genrative Architecture.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="https://github.com/vishalraghav0290" target="_blank" rel="noopener noreferrer">
               View work <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -189,7 +189,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Projects</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Production repos, spatial architecture tools, and 3D web applications.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="https://github.com/vishalraghav0290" target="_blank" rel="noopener noreferrer">
               View repositories <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -217,7 +217,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Tooling &amp; Infra</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Bun runtime, Dockerized micro-deployments, and automated CI/CD.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="https://github.com/vishalraghav0290" target="_blank" rel="noopener noreferrer">
               View tooling <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -231,7 +231,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Motion &amp; Physics</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">GSAP ScrollTrigger, Lenis smooth scrolling, and spatial interactive canvases.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="https://github.com/vishalraghav0290" target="_blank" rel="noopener noreferrer">
               View interaction <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -245,7 +245,7 @@ export default async function Home() {
               <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Platform Work</h3>
               <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">MrManager and DigiVikreta high-concurrency client-facing services.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
+            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#projects">
               View platforms <span className="transition-transform group-hover:translate-x-1">→</span>
             </a>
           </div>
@@ -253,15 +253,15 @@ export default async function Home() {
           <div className="p-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700 hover:shadow-[0_8px_20px_-6px_rgba(15,23,42,0.08)] rounded-xl transition-all duration-200 flex flex-col justify-between group hover:-translate-y-0.5">
             <div>
               <div className="flex items-center justify-between mb-3">
-                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">NOTES &amp; ESSAYS</span>
-                <span className="font-mono text-xs text-[#e11d48] font-bold bg-rose-50 dark:bg-rose-950/30 px-1.5 py-0.5 rounded border border-rose-100 dark:border-rose-900">12</span>
+                <span className="font-mono text-[10px] tracking-widest text-slate-500 dark:text-slate-400 uppercase font-semibold">Resume</span>
+                <span className="font-mono text-xs text-[#e11d48] font-bold bg-rose-50 dark:bg-rose-950/30 px-1.5 py-0.5 rounded border border-rose-100 dark:border-rose-900">01</span>
               </div>
-              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Tech Notes</h3>
-              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">Micro-architectural takeaways, shader memory layouts, and state consensus.</p>
+              <h3 className="text-[17px] font-bold text-slate-900 dark:text-white mb-2 group-hover:text-[#e11d48] transition-colors">Resume</h3>
+              <p className="text-[13px] text-slate-600 dark:text-slate-400 leading-relaxed">A quick summary of my experience and achievements.</p>
             </div>
-            <a className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="#">
-              View notes <span className="transition-transform group-hover:translate-x-1">→</span>
-            </a>
+            <Link className="mt-6 font-mono text-xs font-semibold text-slate-700 dark:text-slate-300 group-hover:text-[#e11d48] inline-flex items-center gap-1 transition-colors" href="/resume">
+              View Resume <span className="transition-transform group-hover:translate-x-1">→</span>
+            </Link>
           </div>
         </div>
       </section>
