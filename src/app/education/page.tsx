@@ -1,4 +1,20 @@
 import React from 'react';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Academic History & Ledger",
+  description:
+    "Academic ledger of Vishal Raghav: Master of Computer Applications (MCA) at Manipal University Jaipur, Bachelor of Computer Applications (BCA) at Mangalayatan University.",
+  alternates: {
+    canonical: "/education",
+  },
+  openGraph: {
+    title: "Academic History & Ledger | Vishal Raghav",
+    description:
+      "Formal academic foundations in computer science, distributed algorithms, and system engineering.",
+    url: "/education",
+  },
+};
 
 export default function EducationPage() {
   return (

@@ -1,0 +1,28 @@
+# Vishal Raghav
+
+> Software Development Engineer (SDE), Systems Architect, and AI Engineer specializing in high-throughput distributed systems, modern web engineering with Next.js & React, and generative AI agentic architectures.
+
+## Core Profile
+- **Full Name**: Vishal Raghav
+- **Current Role**: Software Development Engineer (SDE)
+- **Location**: Jaipur, Rajasthan, India
+- **Email**: vishalraghav0290@gmail.com
+- **Website**: https://vishalraghav.dev
+- **LinkedIn**: https://www.linkedin.com/in/vishal-raghav-dev/
+- **GitHub**: https://github.com/vishalraghav0290
+- **X (Twitter)**: https://x.com/vishalRaghav666
+
+## Technical Specialization
+- **Frontend & Modern Web**: Next.js (App Router, Turbopack, Server Components), React 19, TypeScript, JavaScript (ES6+), Tailwind CSS, State Management (Zustand, Redux Toolkit, Context API).
+- **Backend & Systems**: Node.js, Express, Python, RESTful API Design, Microservices, Caching (Redis), Distributed Architectures, Database Modeling (PostgreSQL, SQL, NoSQL).
+- **AI Engineering & GenAI**: LLM Agentic Workflows, Retrieval-Augmented Generation (RAG), Vector Embeddings & Vector Databases (Pinecone, Chroma), LangChain, Ollama, Prompt Engineering, Deterministic state machines over stochastic model completions.
+- **DevOps & Tooling**: Docker, Git/GitHub, CI/CD Pipelines, Postman, Linux, Vercel.
+
+## Key Projects & Engineering Platforms
+- [Production Platform Work](https://vishalraghav.dev/platform-work): Scalable distributed architectures and high-concurrency systems, including platforms like MrManager and DigiVikreta (engineered for +40% page load reduction, AST parsing optimizations, and zero-bundle static shells).
+- [Interactive Resume & CV](https://vishalraghav.dev/resume): Comprehensive professional history, key competencies, and verified engineering achievements.
+- [Continuous Learning & GenAI Labs](https://vishalraghav.dev/learning): Cohort studies in GenAI & Agentic Workflows (Piyush Garg & Hitesh Choudhary), Alpha Batch Advanced DSA & Scalability Foundations (Apna College).
+- [Academic Ledger](https://vishalraghav.dev/education): Master of Computer Applications (MCA) at Manipal University Jaipur; Bachelor of Computer Applications (BCA) at Mangalayatan University.
+
+## Full Context & Complete Technical Dossier
+- [Full LLM Knowledge Dossier](https://vishalraghav.dev/llms-full.txt): Comprehensive, complete technical context and documentation for AI ingestion.

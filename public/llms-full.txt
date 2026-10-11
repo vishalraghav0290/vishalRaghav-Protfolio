@@ -1,0 +1,70 @@
+# Vishal Raghav — Complete Technical Dossier & Knowledge Base
+
+## Overview
+Vishal Raghav is a Software Development Engineer (SDE), Systems Architect, and AI Engineer based in Jaipur, Rajasthan, India. He builds scalable, high-performance web applications, distributed backend services, and generative AI agentic systems.
+
+## Contact & Online Presence
+- Website: https://vishalraghav.dev
+- Email: vishalraghav0290@gmail.com
+- Phone: +91 9536319210
+- LinkedIn: https://www.linkedin.com/in/vishal-raghav-dev/
+- GitHub: https://github.com/vishalraghav0290
+- X / Twitter: https://x.com/vishalRaghav666
+- Location: Jaipur, Rajasthan, India
+
+## Summary of Qualifications
+- Solutions-driven developer with an ownership mindset building scalable, client-focused web applications.
+- Proven expertise in translating complex business requirements into actionable technical outcomes.
+- Deep focus on rendering performance optimization, distributed state synchronization, and low-latency API pipelines.
+- Experience operating in Agile/Scrum cross-functional environments with CI/CD and automated testing.
+
+## Technical Skills Matrix
+- **Languages**: JavaScript (ES6+), TypeScript, SQL, Python, HTML5, CSS3
+- **Frontend**: React.js, Next.js (App Router, Turbopack, Server Actions), Tailwind CSS, Responsive Design, CSS Grid/Flexbox
+- **State Management & Data**: Redux Toolkit, Zustand, Context API, RESTful APIs, Axios, JSON, SWR, React Query
+- **Backend & Systems**: Node.js, Express, Python, Microservices, Caching (Redis), PostgreSQL, Relational Schema Design
+- **AI Engineering**: Large Language Models (LLMs), Agentic Workflows, Retrieval-Augmented Generation (RAG), Vector Databases (Pinecone, Chroma), LangChain, Ollama, Prompt Engineering, Model Context Protocol (MCP)
+- **DevOps & Tooling**: Git, GitHub, Docker, CI/CD Pipelines, Postman, Linux/macOS, Bun, Vercel
+- **Core Competencies**: System Design, Problem Solving, Data Structures & Algorithms, Unit Testing, Performance Profiling
+
+## Professional Experience
+### Software Development Engineer — MrManager
+- Role: Full Stack / Systems Engineer (Remote)
+- Designed and maintained scalable web platform modules and services.
+- Achieved significant page load latency reductions (+40%) via memoized AST parsing, intelligent code splitting, and zero-bundle static shells.
+- Engineered resilient API communication layers with robust error boundaries and optimistic client updates.
+
+### DigiVikreta
+- Architected digital commerce solutions and high-throughput workflows.
+- Implemented real-time synchronization pipelines and responsive dashboards.
+
+## Continuous Learning & Cohorts
+### GenAI & AI Engineering Cohort (Piyush Garg & Hitesh Choudhary)
+- Mastered production agentic workflows, multi-agent systems, and vector architectures.
+- Built RAG pipelines, fine-tuning scripts, and deterministic state wrappers around stochastic LLM outputs.
+- Key areas: Custom embeddings, KV cache optimization, MCP protocol, streaming token buffers.
+
+### Alpha Batch (Apna College)
+- Rigorous training in advanced Data Structures, Algorithms, Dynamic Programming, Graph Theory, and Scalability Foundations.
+- Solved complex asymptotic algorithmic problems with strict time and space complexity limits.
+
+## Academic History
+### Master of Computer Applications (MCA) — Manipal University Jaipur
+- Timeline: 2023 — Present
+- Focus: Advanced Algorithms, Cloud Architecture, Distributed Datastores
+- Location: Jaipur, Rajasthan, India
+
+### Bachelor of Computer Applications (BCA) — Mangalayatan University
+- Timeline: 2022 — 2025
+- Focus: Operating Systems, Computer Networks, Data Structures & Algorithms
+- Location: Beswan, Aligarh, UP, India
+
+## Key Website Routes
+- Homepage: https://vishalraghav.dev/
+- Platform Work: https://vishalraghav.dev/platform-work
+- Learning & Notes: https://vishalraghav.dev/learning
+- Resume: https://vishalraghav.dev/resume
+- Education: https://vishalraghav.dev/education
+- Sitemap: https://vishalraghav.dev/sitemap.xml
+- Robots: https://vishalraghav.dev/robots.txt
+- LLM Summary: https://vishalraghav.dev/llms.txt

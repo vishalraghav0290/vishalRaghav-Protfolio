@@ -1,5 +1,21 @@
 import React from 'react';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Production Platforms & Architecture",
+  description:
+    "High-concurrency distributed architectures, scalable web services, and production platforms engineered by Vishal Raghav, including MrManager and DigiVikreta.",
+  alternates: {
+    canonical: "/platform-work",
+  },
+  openGraph: {
+    title: "Production Platforms & Architecture | Vishal Raghav",
+    description:
+      "Distributed architectures, latency reductions (+40%), and resilient systems engineered by Vishal Raghav.",
+    url: "/platform-work",
+  },
+};
 
 export default function PlatformWorkPage() {
   return (

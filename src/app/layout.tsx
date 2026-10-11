@@ -42,12 +42,158 @@ const passeroOne = Passero_One({
   weight: ["400"],
 });
 
+const baseUrl = 'https://vishalraghav.dev';
+
 export const metadata: Metadata = {
-  title: "Vishal Raghav — Systems Architecture & Engineering",
-  description: "I am a Software Development Engineer (SDE), Systems Architect, and Performance Engineer focused on building distributed architecture, low-latency streaming pipelines, and GPU compute infrastructure.",
-  icons: {
-    icon: '/img.jpeg',
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: "Vishal Raghav — Software Development Engineer & Systems Architect",
+    template: "%s | Vishal Raghav",
   },
+  description:
+    "Software Development Engineer (SDE), Systems Architect, and AI Engineer specializing in high-throughput distributed systems, modern Next.js/React engineering, performance optimization, and agentic workflows.",
+  applicationName: "Vishal Raghav Portfolio",
+  authors: [{ name: "Vishal Raghav", url: baseUrl }],
+  generator: "Next.js",
+  keywords: [
+    "Vishal Raghav",
+    "vishalraghav0290",
+    "vishal-raghav-dev",
+    "Software Development Engineer",
+    "SDE",
+    "Systems Architect",
+    "Full Stack Developer",
+    "Frontend Engineer",
+    "Backend Engineer",
+    "AI Engineer",
+    "Next.js",
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Distributed Systems",
+    "Jaipur Developer",
+    "Agentic AI",
+    "GenAI",
+  ],
+  creator: "Vishal Raghav",
+  publisher: "Vishal Raghav",
+  alternates: {
+    canonical: "/",
+  },
+  icons: {
+    icon: "/img.jpeg",
+    apple: "/img.jpeg",
+  },
+  openGraph: {
+    type: "profile",
+    locale: "en_US",
+    url: baseUrl,
+    siteName: "Vishal Raghav — Systems Architecture & Engineering",
+    title: "Vishal Raghav — Software Development Engineer & Systems Architect",
+    description:
+      "Software Development Engineer & Systems Architect. Specializing in high-throughput distributed architectures, Next.js web applications, and AI agentic systems.",
+    images: [
+      {
+        url: "/img.jpeg",
+        width: 800,
+        height: 800,
+        alt: "Vishal Raghav",
+      },
+    ],
+    firstName: "Vishal",
+    lastName: "Raghav",
+    username: "vishalraghav0290",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vishal Raghav — Software Development Engineer & Systems Architect",
+    description:
+      "Software Development Engineer & Systems Architect. Scalable platforms, performance engineering, and AI architectures.",
+    creator: "@vishalRaghav666",
+    images: ["/img.jpeg"],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://vishalraghav.dev/#person",
+      "name": "Vishal Raghav",
+      "alternateName": ["vishalraghav0290", "vishal-raghav-dev"],
+      "url": "https://vishalraghav.dev",
+      "image": "https://vishalraghav.dev/img.jpeg",
+      "jobTitle": "Software Development Engineer",
+      "description":
+        "Software Development Engineer (SDE), Systems Architect, and AI Engineer specializing in distributed platforms, Next.js, and generative AI systems.",
+      "sameAs": [
+        "https://www.linkedin.com/in/vishal-raghav-dev/",
+        "https://github.com/vishalraghav0290",
+        "https://x.com/vishalRaghav666"
+      ],
+      "knowsAbout": [
+        "Distributed Systems",
+        "Next.js",
+        "React",
+        "TypeScript",
+        "Node.js",
+        "Python",
+        "System Architecture",
+        "Generative AI",
+        "Agentic Workflows",
+        "Vector Databases",
+        "SQL",
+        "Tailwind CSS"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Jaipur",
+        "addressRegion": "Rajasthan",
+        "addressCountry": "IN"
+      },
+      "alumniOf": [
+        {
+          "@type": "EducationalOrganization",
+          "name": "Manipal University Jaipur"
+        },
+        {
+          "@type": "EducationalOrganization",
+          "name": "Mangalayatan University"
+        }
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://vishalraghav.dev/#website",
+      "url": "https://vishalraghav.dev",
+      "name": "Vishal Raghav Portfolio",
+      "description": "Personal engineering portfolio and architectural ledger of Vishal Raghav.",
+      "publisher": {
+        "@id": "https://vishalraghav.dev/#person"
+      }
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "https://vishalraghav.dev/#profilepage",
+      "url": "https://vishalraghav.dev",
+      "name": "Vishal Raghav — Engineering Portfolio",
+      "mainEntity": {
+        "@id": "https://vishalraghav.dev/#person"
+      }
+    }
+  ]
 };
 
 export default function RootLayout({
@@ -61,6 +207,11 @@ export default function RootLayout({
         <link
           href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet"
+        />
+        <link rel="author" href="https://vishalraghav.dev/llms.txt" />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
       <body
