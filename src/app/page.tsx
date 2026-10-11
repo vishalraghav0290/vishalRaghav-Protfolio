@@ -112,7 +112,7 @@ export default async function Home() {
                 <span>GitHub</span>
                 <span className="text-slate-500 dark:text-slate-400 font-normal">({countrepo ? countrepo.length : 0} repos)</span>
               </a>
-              <a className="inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-slate-800 dark:text-slate-200 font-mono text-xs transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow" href="https://www.linkedin.com/in/vishal-raghav-747a61251/" rel="noopener noreferrer" target="_blank">
+              <a className="inline-flex items-center gap-1.5 h-8 px-3.5 rounded-full bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 shadow-sm text-slate-800 dark:text-slate-200 font-mono text-xs transition-all hover:bg-slate-50 dark:hover:bg-slate-700 hover:shadow" href="https://www.linkedin.com/in/vishal-raghav-dev/" rel="noopener noreferrer" target="_blank">
                 <span>LinkedIn</span>
                 <span className="text-slate-500 dark:text-slate-400 font-normal">(network)</span>
               </a>

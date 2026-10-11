@@ -8,7 +8,7 @@ export default function ResumePage() {
     const plaintext = `VISHAL RAGHAV
 Software Development Engineer — Frontend, Backend & AI-Engineer
 Jaipur, Rajasthan | vishalraghav0290@gmail.com | +919536319210
-LinkedIn: linkedin.com/in/vishal-raghav-747a61251
+LinkedIn: linkedin.com/in/vishal-raghav-dev
 GitHub: github.com/vishalraghav0290
 
 SUMMARY
@@ -91,7 +91,7 @@ EDUCATION
                 <span>+919536319210</span>
               </a>
               <div className="flex flex-wrap items-center gap-2.5 pt-1.5 text-slate-900 dark:text-white">
-                <a className="text-blue-600 dark:text-blue-400 hover:text-blue-800 transition-colors font-medium" href="https://linkedin.com/in/vishal-raghav-747a61251" target="_blank" rel="noopener noreferrer">linkedin.com/in/vishal-raghav-747a61251</a>
+                <a className="text-blue-600 dark:text-blue-400 hover:text-blue-800 transition-colors font-medium" href="https://www.linkedin.com/in/vishal-raghav-dev/" target="_blank" rel="noopener noreferrer">linkedin.com/in/vishal-raghav-dev</a>
                 <span className="text-slate-300 dark:text-slate-600">/</span>
                 <a className="text-blue-600 dark:text-blue-400 hover:text-blue-800 transition-colors font-medium" href="https://github.com/vishalraghav0290" target="_blank" rel="noopener noreferrer">github.com/vishalraghav0290</a>
               </div>

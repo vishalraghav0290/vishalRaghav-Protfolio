@@ -193,8 +193,8 @@ export default function LearningPage() {
                   key={tab.id}
                   onClick={() => setActiveTab(tab.id)}
                   className={`px-3 py-1.5 rounded shrink-0 transition-colors ${activeTab === tab.id
-                      ? 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900'
-                      : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
+                    ? 'bg-slate-900 dark:bg-slate-100 text-white dark:text-slate-900'
+                    : 'text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white hover:bg-slate-100 dark:hover:bg-slate-800'
                     }`}
                   type="button"
                 >

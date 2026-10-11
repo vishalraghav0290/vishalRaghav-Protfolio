@@ -121,7 +121,7 @@ export default function RootLayout({
                       <span>GitHub</span>
                       <span className="text-slate-400 ml-1.5">(repos)</span>
                     </a>
-                    <a className="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 font-mono text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shadow-sm" href="https://www.linkedin.com/in/vishal-raghav-747a61251/" rel="noopener noreferrer" target="_blank">
+                    <a className="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 font-mono text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shadow-sm" href="https://www.linkedin.com/in/vishal-raghav-dev/" rel="noopener noreferrer" target="_blank">
                       <span>LinkedIn</span>
                     </a>
                     <a className="inline-flex items-center px-3 py-1.5 rounded-full bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 font-mono text-xs text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white transition-colors shadow-sm" href="https://x.com/vishalRaghav666" rel="noopener noreferrer" target="_blank">

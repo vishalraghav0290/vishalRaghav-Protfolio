@@ -61,7 +61,7 @@ export function HeaderNav() {
         );
       })}
       
-      <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="https://www.linkedin.com/in/vishal-raghav-747a61251/" target="_blank" rel="noopener noreferrer">Linkedin</a>
+      <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors" href="https://www.linkedin.com/in/vishal-raghav-dev/" target="_blank" rel="noopener noreferrer">Linkedin</a>
       <a className="hover:text-slate-950 dark:hover:text-gray-950 transition-colors font-mono" href="https://github.com/vishalraghav0290" rel="noopener noreferrer" target="_blank">GitHub</a>
       <ThemeToggle />
     </nav>
